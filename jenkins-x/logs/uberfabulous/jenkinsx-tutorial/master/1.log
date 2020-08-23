@@ -1,0 +1,42 @@
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1598172055.135096,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-uberfabulous-jenkinsx-tuto-625p5-64k5c[0m
+{"level":"info","ts":1598172064.177684,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/************/jenkinsx-tutorial.git @ 43e1dce06be593f72123dd50cda9f07f3201de7d in path /workspace/source"}
+{"level":"warn","ts":1598172064.1794138,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1598172064.2311645,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:43e1dce06be593f72123dd50cda9f07f3201de7d
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /tekton/home/.**/jenkins-x-versions
+Effective pipeline written to jenkins-x-effective.yml
+
+Showing logs for build [32mmeta-uberfabulous-jenkinsx-tuto-625p5-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-tekton-crds[0m
+running command: echo \$(**-release-version) > VERSION
+
+running command: ** step tag --version \$(cat VERSION)
+Updating chart version in charts/jenkinsx-tutorial/Chart.yaml to 0.0.1
+Updating repository in charts/jenkinsx-tutorial/values.yaml to 10.106.111.211:5000/************/jenkinsx-tutorial
+Updating tag in charts/jenkinsx-tutorial/values.yaml to 0.0.1
+Tag v0.0.1 created and pushed to remote origin
+
+WARNING: failed to find secret kaniko-secret in namespace **: secrets "kaniko-secret" not found
+PipelineActivity for ************-jenkinsx-tutorial-master-1
+Applying changes 
+upserted PipelineResource ************-jenkinsx-tutorial-svjvx for the git repository https://github.com/************/jenkinsx-tutorial.git
+upserted Task ************-jenkinsx-tutorial-svjvx-from-build-pack-1
+upserted Pipeline ************-jenkinsx-tutorial-svjvx-1
+error: failed to apply Tekton CRDs: failed to create the pipelineRun in namespace **: Failed to create PipelineRun ************-jenkinsx-tutorial-svjvx-1: admission webhook "webhook.pipeline.tekton.dev" denied the request: mutation failed: cannot decode incoming new object: json: unknown field "ImagePullSecrets"
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-tekton-crds'. The execution of the pipeline has stopped.[0m
